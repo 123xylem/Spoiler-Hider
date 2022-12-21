@@ -1,0 +1,40 @@
+{
+  "name": "Fight! Spoilers Hider for Youtube",
+  "description": "Watch UFC/Boxing/MMA without any spoilers! Other sports have some Spoiler support to. Simply refresh your youtube page to activate it.",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "/icons/16.png",
+    "32": "/icons/32.png",
+    "48": "/icons/48.png",
+    "128": "/icons/128.png"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Spoilers be Gone! (Refresh page to activate/deactivate)",
+    "default_icon": {
+      "16": "/icons/16.png",
+      "32": "/icons/32.png",
+      "48": "/icons/48.png",
+      "128": "/icons/128.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": ["https://*.youtube.com/*"],
+    "js": ["js/run.js"],
+    "css": ["css/options.css"]
+  }],
+  "options_page": "options.html",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ]
+}
